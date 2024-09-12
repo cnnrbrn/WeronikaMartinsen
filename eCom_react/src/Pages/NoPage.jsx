@@ -1,13 +1,8 @@
 import "../styles/index.css";
-import Header from "../Layout/Header";
+import Layout from "../Layout/Layout";
 
 function NoPage() {
-  return (
-    <>
-      <Header />
-      <h1>Error 404 : No Found</h1>
-    </>
-  );
+  return <Layout />;
 }
 
 export default NoPage;

@@ -1,13 +1,8 @@
 import "../styles/index.css";
-import Header from "../Layout/Header";
+import Layout from "../Layout/Layout";
 
 function Contact() {
-  return (
-    <>
-      <Header />
-      <h1>Contact</h1>
-    </>
-  );
+  return <Layout />;
 }
 
 export default Contact;

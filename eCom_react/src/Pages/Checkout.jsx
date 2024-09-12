@@ -1,13 +1,8 @@
 import "../styles/index.css";
-import Header from "../Layout/Header";
+import Layout from "../Layout/Layout";
 
 function Checkout() {
-  return (
-    <>
-      <Header />
-      <h1>Checkout</h1>
-    </>
-  );
+  return <Layout />;
 }
 
 export default Checkout;

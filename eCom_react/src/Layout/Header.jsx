@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/index.css";
+import Logo from "../images/Logo.png";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,11 +16,7 @@ function Header() {
           <div className="flex">
             <div className="flex lg:flex-1">
               <a href="/" className="-m-1.5 p-1.5">
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt="Logo"
-                />
+                <img src={Logo} alt="Logo" className="w-15 h-8" />
               </a>
             </div>
             {/* Mobile menu */}
