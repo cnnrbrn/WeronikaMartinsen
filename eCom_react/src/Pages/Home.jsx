@@ -1,11 +1,10 @@
 import "../styles/index.css";
-import Header from "../Layout/Header";
+import Layout from "../Layout/Layout";
 
 function Home() {
   return (
     <>
-      <Header />
-      <h1>Home</h1>
+      <Layout />
     </>
   );
 }
