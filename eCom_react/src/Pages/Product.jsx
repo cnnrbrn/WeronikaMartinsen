@@ -1,11 +1,14 @@
 import "../styles/index.css";
 import Header from "../Layout/Header";
+import { useParams } from "react-router-dom";
 
 function SingleProduct() {
+  let params = useParams();
+  console.log(params);
   return (
     <>
       <Header />
-      <h1>Single Page</h1>
+      <div>Individual product page: {params.id}</div>
     </>
   );
 }
