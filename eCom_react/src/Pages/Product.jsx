@@ -1,16 +1,15 @@
 import "../styles/index.css";
-import Header from "../Layout/Header";
 import { useParams } from "react-router-dom";
+import Layout from "../Layout/Layout";
 
-function SingleProduct() {
+function Product() {
   let params = useParams();
   console.log(params);
   return (
-    <>
-      <Header />
-      <div>Individual product page: {params.id}</div>
-    </>
+    <Layout>
+      <h1>Products</h1>
+    </Layout>
   );
 }
 
-export default SingleProduct;
+export default Product;
