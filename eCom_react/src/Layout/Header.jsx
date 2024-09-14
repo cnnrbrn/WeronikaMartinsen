@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/index.css";
 import Logo from "../images/Logo.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,27 +16,19 @@ function Header() {
         >
           <div className="flex">
             <div className="flex lg:flex-1">
-              <a href="/" className="-m-1.5 p-1.5">
+              <Link className={"link-styles"} to="/">
                 <img src={Logo} alt="Logo" className="w-15 h-8" />
-              </a>
+              </Link>
             </div>
             {/* Mobile menu */}
             {isMenuOpen && (
-              <div
-                className="sm:hidden mx-auto"
-                role="dialog"
-                aria-modal="true"
-              >
+              <div className="sm:hidden" role="dialog" aria-modal="true">
                 <div className="fixed inset-0 z-10 bg-rose-50"></div>
-                <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                   <div className="flex items-center justify-between">
-                    <a href="/" className="-m-1.5 p-1.5">
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="Logo"
-                      />
-                    </a>
+                    <Link className={"link-styles"} to="/">
+                      <img src={Logo} alt="Logo" className="w-15 h-8" />
+                    </Link>
                     <button
                       type="button"
                       onClick={toggleMenu}
@@ -60,19 +53,13 @@ function Header() {
                   </div>
                   <div className="mt-6 flow-root bg-rose-50">
                     <div className="-my-6 divide-y divide-gray-500/10">
-                      <div className="space-y-2 py-6">
-                        <a
-                          href="/"
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                        >
+                      <div className="flex flex-col col justify-center gap-4 mt-8">
+                        <Link className={"link-styles-mobile"} to="/">
                           Home
-                        </a>
-                        <a
-                          href="/Contact"
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                        >
+                        </Link>
+                        <Link className={"link-styles-mobile"} to="/Contact">
                           Contact
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -80,7 +67,7 @@ function Header() {
               </div>
             )}
           </div>
-          <div className="flex sm:hidden">
+          <div className="flex sm:hidden me-8">
             <button
               type="button"
               onClick={toggleMenu}
@@ -113,21 +100,15 @@ function Header() {
           </div>
           <div className="hidden sm:flex sm:gap-x-12 bg-rose-50">
             <div className="relative">{/* Dropdown menu */}</div>
-            <a
-              href="/"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
+            <Link className={"link-styles"} to="/">
               Home
-            </a>
-            <a
-              href="/Contact"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
+            </Link>
+            <Link className={"link-styles"} to="/Contact">
               Contact
-            </a>
+            </Link>
           </div>
           <div className="lg:flex">
-            <a href="/Checkout">
+            <Link to="/Checkout">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -142,7 +123,7 @@ function Header() {
                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </nav>
       </header>

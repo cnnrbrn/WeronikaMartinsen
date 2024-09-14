@@ -9,3 +9,14 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.link-styles {
+  font-size: 1.1em;
+}
+.link-styles-mobile {
+  font-size: 1.3em;
+}
+.link-styles-mobile:hover,
+.link-styles:hover {
+  font-weight: 500;
+}
