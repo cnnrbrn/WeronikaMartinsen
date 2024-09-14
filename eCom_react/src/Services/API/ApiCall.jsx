@@ -36,12 +36,15 @@ export default function ApiCall() {
       {Array.isArray(data) &&
         data.length > 0 &&
         data.map((post) => (
-          <div className="bg-neutral-50 border-4 m-2" key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
-            <div>
+          <div
+            className="bg-neutral-50 border-1 m-2 p-1 custom-card"
+            key={post.id}
+          >
+            <div className="custom-size-image-box">
               <img src={post.image.url} alt={post.image.alt} />
             </div>
+            <h2 className="text-2xl">{post.title}</h2>
+            <p>{post.description}</p>
           </div>
         ))}
     </div>
