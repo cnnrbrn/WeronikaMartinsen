@@ -32,7 +32,7 @@ export default function ApiCall() {
     }
   };
   return (
-    <div className="grid-container bg-rose-50">
+    <div className="grid-container bg-rose-50 gap-4">
       {loading && <Loading />}
       {error && <ErrorMessage />}
       {Array.isArray(data) &&
