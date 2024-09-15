@@ -16,7 +16,12 @@ function Header() {
         >
           <div className="flex">
             <div className="flex lg:flex-1">
-              <Link className={"link-styles"} to="/">
+              <Link
+                className={
+                  "link-styles p-1 hover:bg-red-200 active:bg-red-200 focus:outline-none focus:ring focus:ring-red-200 rounded-lg"
+                }
+                to="/"
+              >
                 <img src={Logo} alt="Logo" className="w-15 h-8" />
               </Link>
             </div>
@@ -100,15 +105,30 @@ function Header() {
           </div>
           <div className="hidden sm:flex sm:gap-x-12 bg-rose-50">
             <div className="relative">{/* Dropdown menu */}</div>
-            <Link className={"link-styles"} to="/">
+            <Link
+              className={
+                "link-styles p-1 hover:bg-red-200 active:bg-red-200 focus:outline-none focus:ring focus:ring-red-200 rounded-lg"
+              }
+              to="/"
+            >
               Home
             </Link>
-            <Link className={"link-styles"} to="/Contact">
+            <Link
+              className={
+                "link-styles p-1 hover:bg-red-200 active:bg-red-200 focus:outline-none focus:ring focus:ring-red-200 rounded-lg"
+              }
+              to="/Contact"
+            >
               Contact
             </Link>
           </div>
           <div className="lg:flex">
-            <Link to="/Checkout">
+            <Link
+              className={
+                "link-styles p-1 hover:bg-red-200 active:bg-red-200 focus:outline-none focus:ring focus:ring-red-200 rounded-lg"
+              }
+              to="/Checkout"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
