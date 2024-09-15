@@ -1,13 +1,16 @@
 import "../styles/index.css";
 import { useParams } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import SingleProductCall from "../Services/API/SingleProductCall";
 
 function Product() {
-  let params = useParams();
-  console.log(params);
+  const { id } = useParams();
+  console.log("ID in Product page: ", id);
   return (
     <Layout>
-      <div>Individual Post ID: {params.id}</div>
+      <div className="h-screen mt-20">
+        <SingleProductCall />
+      </div>
     </Layout>
   );
 }

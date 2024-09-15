@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import Product from "../../Pages/Product";
 
 function ProductCard({ product }) {
+  console.log(product.id);
   return (
-    <Link to={`/Product/${product.id}`} element={<Product />}>
+    <Link to={`/Product/${product.id}`}>
+      {console.log(`/Product/${product.id}`)}
       <div className="bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full justify-between hover:bg-transparent hover:shadow-xl cursor-pointer">
         <div className="h-32">
           <img
