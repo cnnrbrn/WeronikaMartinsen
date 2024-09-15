@@ -1,7 +1,7 @@
 function SingleCard({ product }) {
   return (
-    <div className="bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full justify-between hover:bg-transparent hover:shadow-xl cursor-pointer">
-      <div className="h-32">
+    <div className="bg-white rounded-lg shadow-md flex h-full w-100">
+      <div className="h-42">
         <img
           className="rounded-t-lg h-full w-full object-cover"
           src={product.image.url}
@@ -26,6 +26,21 @@ function SingleCard({ product }) {
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-xl">
           {product.discountedPrice},-
         </p>
+        <div className="border h-auto rounded-lg">
+          {product.reviews &&
+          Array.isArray(product.reviews) &&
+          product.reviews.length > 0 ? (
+            product.reviews.map((review) => (
+              <div key={review.id} className="p-4 border-b">
+                <p className="text-gray-600 italic">{review.description}</p>
+                <p className="text-yellow-500">Rating: {review.rating}/5</p>
+                <p className="text-sm text-end mt-2">{review.username}</p>
+              </div>
+            ))
+          ) : (
+            <p>No reviews available.</p>
+          )}
+        </div>
       </div>
     </div>
   );
