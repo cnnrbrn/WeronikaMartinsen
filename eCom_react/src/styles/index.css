@@ -19,3 +19,6 @@ body {
 .custom-max-width {
   max-width: 1200px;
 }
+.custom-size-card {
+  height: 200px;
+}

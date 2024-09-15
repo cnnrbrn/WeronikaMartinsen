@@ -7,7 +7,7 @@ function Product() {
   console.log(params);
   return (
     <Layout>
-      <h1>Products</h1>
+      <div>Individual Post ID: {params.id}</div>
     </Layout>
   );
 }
