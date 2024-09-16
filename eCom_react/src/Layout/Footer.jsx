@@ -6,7 +6,7 @@ function Footer() {
       <footer className="h-26 bg-red-300 bottom-0 flex justify-center align-bottom">
         <div className="flex flex-col items-center text-center">
           <div className="container">
-            <div className="">
+            <div>
               <p className="flex items-center justify-center mb-4 mt-4">
                 <span className="me-4">Register for free</span>
                 <button
