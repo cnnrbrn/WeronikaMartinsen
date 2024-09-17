@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/index.css";
 import Logo from "../images/Logo.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function Header() {
+const Header = () => {
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const carts = useSelector((store) => store.cart.items);
+
+  useEffect(() => {
+    let total = 0;
+    carts.forEach((item) => (total += item.quantity));
+    setTotalQuantity(total);
+  }, [carts]);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -147,7 +157,7 @@ function Header() {
                 />
               </svg>
               <span className="absolute top-2/3 right-1/2 bg-red-400 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center">
-                0
+                {totalQuantity}
               </span>
             </Link>
           </div>
@@ -155,6 +165,6 @@ function Header() {
       </header>
     </>
   );
-}
+};
 
 export default Header;

@@ -1,4 +1,24 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Stores/Cart";
+
 function SingleCard({ product }) {
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+  const handleMinusQuantity = () => {
+    setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
+  };
+  const handlePlusQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+  const handleAddToCard = () => {
+    dispatch(
+      addToCart({
+        productId: product.id,
+        quantity: quantity,
+      })
+    );
+  };
   return (
     <div className="mb-2 grid grid-cols-1 sm:grid-cols-2 gap-5 p-4 custom-max-width">
       <div className="h-96">
@@ -48,6 +68,29 @@ function SingleCard({ product }) {
             <p>No reviews available.</p>
           )}
         </div>
+        <div className="flex gap-2 justify-center items-center">
+          <button
+            onClick={handleMinusQuantity}
+            className="bg-gray-200 h-full w-10 font-bold rounded-xl text-xl text-center flex justify-center items-center"
+          >
+            -
+          </button>
+          <span className="bg-gray-200 h-full w-10 font-bold rounded-xl text-xl text-center flex justify-center items-center">
+            {quantity}
+          </span>
+          <button
+            onClick={handlePlusQuantity}
+            className="bg-gray-200 h-full w-10 font-bold rounded-xl text-xl text-center flex justify-center items-center"
+          >
+            +
+          </button>
+        </div>
+        <button
+          onClick={handleAddToCard}
+          className="p-2 border text-sm gap-2 flex justify-center hover:bg-transparent hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
+        >
+          Add To Cart
+        </button>
       </div>
     </div>
   );

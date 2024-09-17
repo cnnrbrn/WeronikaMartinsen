@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
-import AddToBag from "../Buttons/AddToBag";
+// import AddToBag from "../Buttons/AddToBag";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../Stores/Cart";
 
 function ProductCard({ product }) {
-  console.log(product.id);
+  const carts = useSelector((store) => store.cart.items);
+  console.log(carts);
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        productId: product.id,
+        quantity: 1,
+      })
+    );
+  };
   return (
     <div className="bg-white rounded-lg shadow-md flex flex-col h-full justify-between hover:shadow-xl cursor-pointer">
       <Link to={`/Product/${product.id}`}>
@@ -32,7 +44,7 @@ function ProductCard({ product }) {
           {product.discountedPrice},-
         </p>
       </div>
-      <AddToBag />
+      <button onClick={handleAddToCart}>Add to cart</button>
     </div>
   );
 }
