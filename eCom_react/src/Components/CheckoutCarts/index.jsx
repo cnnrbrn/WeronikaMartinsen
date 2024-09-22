@@ -33,15 +33,16 @@ const CheckoutCarts = (props) => {
   // Safely check if detail and detail.image exist before rendering
   return (
     <div className="flex justify-between gap-4 items-center p-2 border border-red-300 rounded-xl m-3">
-      <div className="flex justify-center items-center">
+      {detail && detail.image ? (
         <img
           src={detail.image.url}
           alt={detail.image.alt || "Product image"}
-          className="w-12 rounded-xl"
+          className="w-12"
         />
-
-        <h3>{detail ? detail.title : "Loading title..."}</h3>
-      </div>
+      ) : (
+        <p>Loading image...</p> // Fallback if image is not available yet
+      )}
+      <h3>{detail ? detail.title : "Loading title..."}</h3>
       <p>{detail ? detail.discountedPrice * quantity : "Loading price..."}</p>
       <div className="w-20 flex justify-between gap-2">
         <button
