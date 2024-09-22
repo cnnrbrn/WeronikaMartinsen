@@ -1,12 +1,14 @@
 import "../styles/index.css";
+import Layout from "../Layout/Layout";
+import ApiCall from "../Services/API/ApiCall";
+import HeroSection from "../Components/HeroSection";
 
 function Home() {
   return (
-    <>
-      <div className="bg-slate-600 flex justify-center align-middle text-gray-50">
-        <h1 className="">Hey!</h1>
-      </div>
-    </>
+    <Layout>
+      <HeroSection />
+      <ApiCall />
+    </Layout>
   );
 }
 

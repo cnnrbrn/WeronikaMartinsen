@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.link-styles {
+  font-size: 1.1em;
+}
+.link-styles-mobile {
+  font-size: 1.3em;
+}
+.custom-max-width {
+  max-width: 1200px;
+}
+.custom-size-card {
+  height: 200px;
+}
