@@ -23,8 +23,9 @@ export default function ApiCall() {
       const result = await response.json();
       console.log(result);
       setData(result.data);
+      localStorage.setItem("products", JSON.stringify(result.data));
       setLoading(false);
-      console.log(result);
+      console.log(result.data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
       setLoading(false);
