@@ -68,7 +68,7 @@ function SingleCard({ product }) {
             <p>No reviews available.</p>
           )}
         </div>
-        <div className="flex gap-2 justify-center items-center">
+        <div className="mt-8 flex gap-2 justify-center items-center">
           <button
             onClick={handleMinusQuantity}
             className="bg-gray-200 h-full w-10 font-bold rounded-xl text-xl text-center flex justify-center items-center"
@@ -85,12 +85,14 @@ function SingleCard({ product }) {
             +
           </button>
         </div>
-        <button
-          onClick={handleAddToCard}
-          className="p-2 border text-sm gap-2 flex justify-center hover:bg-transparent hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
-        >
-          Add To Cart
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={handleAddToCard}
+            className="mt-8 p-3 border text-md gap-2 flex justify-center bg-red-300 rounded-xl hover:bg-red-400 hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
+          >
+            Add To Cart
+          </button>
+        </div>
       </div>
     </div>
   );

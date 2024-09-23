@@ -1,11 +1,17 @@
 import "../styles/index.css";
 import Layout from "../Layout/Layout";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CheckoutCarts from "../Components/CheckoutCarts";
+import { clearCart } from "../Stores/Cart"; // Import the clearCart action
 
 const Checkout = () => {
   const carts = useSelector((store) => store.cart.items);
-  // const statusTab = useSelector((store) => store.cart.statusTab);
+  const dispatch = useDispatch(); // Initialize the dispatch hook
+
+  // Function to clear the cart
+  const handleClearCart = () => {
+    dispatch(clearCart()); // Dispatch the clearCart action
+  };
 
   return (
     <Layout>
@@ -16,8 +22,19 @@ const Checkout = () => {
             <CheckoutCarts key={key} data={item} />
           ))}
         </div>
-        <div className="grid grid-cols-2">
-          <button>Checkout</button>
+        <div className="flex justify-end">
+          <span>Total Price:</span>
+        </div>
+        <div className="flex justify-between mb-8">
+          <button
+            onClick={handleClearCart}
+            className="mt-8 p-3 border text-md gap-2 flex justify-center border-red-300 rounded-xl hover:bg-red-400 hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
+          >
+            Clear Cart
+          </button>
+          <button className="mt-8 p-3 border text-md gap-2 flex justify-center bg-red-300 rounded-xl hover:bg-red-400 hover:shadow-xl dark:bg-gray-800 dark:border-gray-700">
+            Checkout
+          </button>
         </div>
       </div>
     </Layout>

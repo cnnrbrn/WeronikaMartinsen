@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: localStorage.getItem("cart")
+  items: localStorage.getItem("carts")
     ? JSON.parse(localStorage.getItem("carts"))
-    : [],
+    : [], // Consistent key name here
   statusTab: false,
 };
 
@@ -21,7 +21,7 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ productId, quantity });
       }
-      localStorage.setItem("carts", JSON.stringify(state.items));
+      localStorage.setItem("carts", JSON.stringify(state.items)); // Consistent key name here
     },
     changeQuantity(state, action) {
       const { productId, quantity } = action.payload;
@@ -35,13 +35,30 @@ const cartSlice = createSlice({
           (item) => item.productId !== productId
         );
       }
-      localStorage.setItem("carts", JSON.stringify(state.items));
+      localStorage.setItem("carts", JSON.stringify(state.items)); // Consistent key name here
     },
     toggleStatusTab(state) {
       state.statusTab = !state.statusTab;
     },
+    removeFromCart(state, action) {
+      // Mutate the state.items array directly
+      state.items = state.items.filter(
+        (item) => item.productId !== action.payload.productId
+      );
+      localStorage.setItem("carts", JSON.stringify(state.items)); // Save updated cart to local storage
+    },
+    clearCart(state) {
+      state.items = [];
+      localStorage.setItem("carts", JSON.stringify(state.items));
+    },
   },
 });
 
-export const { addToCart, changeQuantity, toggleStatusTab } = cartSlice.actions;
+export const {
+  addToCart,
+  changeQuantity,
+  toggleStatusTab,
+  removeFromCart,
+  clearCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;
