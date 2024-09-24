@@ -52,7 +52,7 @@ const CheckoutCarts = (props) => {
               className="w-12"
             />
           ) : (
-            <p>Loading image...</p> // Fallback if image is not available yet
+            <p>Loading image...</p>
           )}
           <h3>{detail ? detail.title : "Loading title..."}</h3>
           <p>

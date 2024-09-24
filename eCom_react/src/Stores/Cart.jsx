@@ -12,16 +12,20 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      const { productId, quantity } = action.payload;
+      const { productId, quantity, price } = action.payload;
       const indexProductId = state.items.findIndex(
         (item) => item.productId === productId
       );
       if (indexProductId >= 0) {
         state.items[indexProductId].quantity += quantity;
       } else {
-        state.items.push({ productId, quantity });
+        state.items.push({ productId, quantity, price });
       }
       localStorage.setItem("carts", JSON.stringify(state.items)); // Consistent key name here
+      state.totalPrice = state.items.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
     },
     changeQuantity(state, action) {
       const { productId, quantity } = action.payload;
@@ -36,6 +40,10 @@ const cartSlice = createSlice({
         );
       }
       localStorage.setItem("carts", JSON.stringify(state.items)); // Consistent key name here
+      state.totalPrice = state.items.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      ); // Update total price
     },
     toggleStatusTab(state) {
       state.statusTab = !state.statusTab;
@@ -46,6 +54,10 @@ const cartSlice = createSlice({
         (item) => item.productId !== action.payload.productId
       );
       localStorage.setItem("carts", JSON.stringify(state.items)); // Save updated cart to local storage
+      state.totalPrice = state.items.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      ); // Update total price
     },
     clearCart(state) {
       state.items = [];
@@ -62,3 +74,4 @@ export const {
   clearCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;
+export const selectTotalPrice = (state) => state.cart.totalPrice;

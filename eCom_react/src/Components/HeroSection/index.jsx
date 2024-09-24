@@ -1,8 +1,21 @@
+import SearchBar from "../SearchBar";
+
 function HeroSection() {
   return (
-    <div className="h-96 bg-slate-100">
-      <h1 className="text-xl">Hero Section</h1>
-    </div>
+    <>
+      <div className="custom-max-width container">
+        <div className="flex justify-start items-start flex-col pl-8 pr-8">
+          <div>
+            <h1 className="text-7xl mt-8">Explore, shop</h1>
+            <h2 className="text-5xl mb-8 mt-4">repeat again.</h2>
+            <span className="text-pretty">Find your products:</span>
+            <div className="mt-2">
+              <SearchBar />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
