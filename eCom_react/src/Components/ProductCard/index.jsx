@@ -12,6 +12,7 @@ function ProductCard({ product }) {
       addToCart({
         productId: product.id,
         quantity: 1,
+        price: product.discountedPrice || product.price,
       })
     );
   };

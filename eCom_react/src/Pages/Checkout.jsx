@@ -7,11 +7,10 @@ import { clearCart, selectTotalPrice } from "../Stores/Cart";
 const Checkout = () => {
   const carts = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
-  const totalPrice = useSelector(selectTotalPrice); // Using the memoized selector
+  const totalPrice = useSelector(selectTotalPrice);
 
-  // Function to clear the cart
   const handleClearCart = () => {
-    dispatch(clearCart()); // Dispatch the clearCart action
+    dispatch(clearCart());
   };
 
   return (

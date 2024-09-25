@@ -16,6 +16,7 @@ function SingleCard({ product }) {
       addToCart({
         productId: product.id,
         quantity: quantity,
+        price: product.discountedPrice || product.price,
       })
     );
   };

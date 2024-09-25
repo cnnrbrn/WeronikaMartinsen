@@ -56,7 +56,9 @@ const CheckoutCarts = (props) => {
           )}
           <h3>{detail ? detail.title : "Loading title..."}</h3>
           <p>
-            {detail ? detail.discountedPrice * quantity : "Loading price..."}
+            {detail
+              ? detail.discountedPrice.toFixed(2) * quantity
+              : "Loading price..."}
           </p>
           <div className="w-20 flex justify-between gap-2">
             <button
