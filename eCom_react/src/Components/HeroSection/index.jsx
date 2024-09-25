@@ -1,6 +1,13 @@
 import SearchBar from "../SearchBar";
+import ApiCall from "../../Services/API/ApiCall";
+import { useState } from "react";
 
 function HeroSection() {
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearch = (input) => {
+    setSearchInput(input);
+  };
   return (
     <>
       <div className="custom-max-width container">
@@ -8,9 +15,9 @@ function HeroSection() {
           <div>
             <h1 className="text-7xl mt-8">Explore, shop</h1>
             <h2 className="text-5xl mb-8 mt-4">repeat again.</h2>
-            <span className="text-pretty">Find your products:</span>
             <div className="mt-2">
-              <SearchBar />
+              <SearchBar onSearch={handleSearch} />
+              <ApiCall searchInput={searchInput} />
             </div>
           </div>
         </div>
