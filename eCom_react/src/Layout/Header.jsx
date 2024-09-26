@@ -157,7 +157,7 @@ const Header = () => {
                 />
               </svg>
               {totalQuantity > 0 && (
-                <span className="absolute right-1/2 top-10 bg-red-400 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center">
+                <span className="absolute right-1/2 top-6 bg-red-400 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center">
                   {totalQuantity}
                 </span>
               )}

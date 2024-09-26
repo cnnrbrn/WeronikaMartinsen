@@ -17,7 +17,7 @@ function ProductCard({ product }) {
     );
   };
   return (
-    <div className="bg-white rounded-lg shadow-md flex flex-col h-full justify-between hover:shadow-xl cursor-pointer">
+    <div className="relative bg-white rounded-lg shadow-md flex flex-col h-full justify-between hover:shadow-xl cursor-pointer">
       <Link to={`/Product/${product.id}`}>
         <div className="h-64">
           <img
@@ -32,18 +32,33 @@ function ProductCard({ product }) {
         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
           {product.title}
         </h5>
-        {/* 
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">
-          {product.description}
-        </p> */}
+        {product.discountedPrice < product.price ? (
+          <>
+            {/* Display original price with a line-through */}
+            <p className="mb-1 line-through dark:text-gray-400 text-xs text-gray-400">
+              {product.price},-
+            </p>
 
-        <p className="mb-1 line-through dark:text-gray-400 text-xs text-gray-400">
-          {product.price},-
-        </p>
+            {/* Display discounted price */}
+            <p className="mb-1 font-normal text-gray-700 dark:text-gray-400 text-xl">
+              {product.discountedPrice},-
+            </p>
 
-        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400 text-xl">
-          {product.discountedPrice},-
-        </p>
+            {/* Calculate and display discount percentage */}
+            <p className="absolute top-1 right-1 text-md text-red-600 font-semibold p-2 bg-white rounded-full">
+              {Math.round(
+                ((product.price - product.discountedPrice) / product.price) *
+                  100
+              )}
+              %
+            </p>
+          </>
+        ) : (
+          // Display only the original price if there’s no discount
+          <p className="mb-1 font-normal text-gray-700 dark:text-gray-400 text-xl">
+            {product.price},-
+          </p>
+        )}
       </div>
       <div className="flex justify-center items-center mb-4">
         <button

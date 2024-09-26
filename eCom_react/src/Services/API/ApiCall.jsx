@@ -36,6 +36,7 @@ export default function ApiCall({ searchInput }) {
         product.title.toLowerCase().includes(searchInput.toLowerCase())
       )
     : data;
+  console.log(filteredData);
 
   return (
     <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-4 custom-max-width">
