@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"  # The build command to create the production bundle
+  publish = "dist"           # The folder where your bundled site will be deployed from
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
