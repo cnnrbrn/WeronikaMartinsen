@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeQuantity, removeFromCart } from "../../Stores/Cart";
 import { TrashIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 const CheckoutCarts = (props) => {
   const { productId, quantity } = props.data;
@@ -46,11 +47,13 @@ const CheckoutCarts = (props) => {
         {" "}
         <div className="flex justify-between gap-4 items-center p-2 border border-red-300 rounded-xl m-3">
           {detail && detail.image ? (
-            <img
-              src={detail.image.url}
-              alt={detail.image.alt || "Product image"}
-              className="w-12"
-            />
+            <Link to={`/Product/${productId}`}>
+              <img
+                src={detail.image.url}
+                alt={detail.image.alt || "Product image"}
+                className="w-12"
+              />{" "}
+            </Link>
           ) : (
             <p>Loading image...</p>
           )}
@@ -60,6 +63,7 @@ const CheckoutCarts = (props) => {
               ? detail.discountedPrice.toFixed(2) * quantity
               : "Loading price..."}
           </p>
+
           <div className="w-20 flex justify-between gap-2">
             <button
               className="rounded-full w-6 h-6 text-cyan-600"

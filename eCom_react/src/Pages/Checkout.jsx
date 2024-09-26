@@ -15,34 +15,36 @@ const Checkout = () => {
 
   return (
     <Layout>
-      <div className="grid grid-rows">
-        <h2>Shopping Cart</h2>
-        <div className="flex flex-col gap-2 mt-4">
+      <div className="custom-max-width">
+        <div>
+          <span className="text-start">Back to shopping</span>
+          <h2 className="text-xl mt-4">Shopping Cart</h2>
+
           {carts.length > 0 ? (
             carts.map((item, key) => <CheckoutCarts key={key} data={item} />)
           ) : (
             <p>Your cart is empty.</p>
           )}
-        </div>
 
-        {carts.length > 0 && (
-          <div className="flex justify-end mt-4">
-            <span className="font-bold text-lg">
-              Total Price: ${totalPrice.toFixed(2)}
-            </span>
+          {carts.length > 0 && (
+            <div className="flex justify-end mt-4">
+              <span className="font-bold text-lg">
+                Total Price: ${totalPrice.toFixed(2)}
+              </span>
+            </div>
+          )}
+
+          <div className="flex justify-between mb-8 mt-4">
+            <button
+              onClick={handleClearCart}
+              className="p-3 border text-md gap-2 flex justify-center border-red-300 rounded-xl hover:bg-red-400 hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
+            >
+              Clear Cart
+            </button>
+            <button className="p-3 border text-md gap-2 flex justify-center bg-red-300 rounded-xl hover:bg-red-400 hover:shadow-xl dark:bg-gray-800 dark:border-gray-700">
+              Checkout
+            </button>
           </div>
-        )}
-
-        <div className="flex justify-between mb-8 mt-4">
-          <button
-            onClick={handleClearCart}
-            className="p-3 border text-md gap-2 flex justify-center border-red-300 rounded-xl hover:bg-red-400 hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
-          >
-            Clear Cart
-          </button>
-          <button className="p-3 border text-md gap-2 flex justify-center bg-red-300 rounded-xl hover:bg-red-400 hover:shadow-xl dark:bg-gray-800 dark:border-gray-700">
-            Checkout
-          </button>
         </div>
       </div>
     </Layout>

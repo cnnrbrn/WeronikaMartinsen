@@ -8,9 +8,9 @@ function Product() {
   console.log("ID in Product page: ", id);
   return (
     <Layout>
-      <div className="h-screen mt-20">
+      <main>
         <SingleProductCall />
-      </div>
+      </main>
     </Layout>
   );
 }
