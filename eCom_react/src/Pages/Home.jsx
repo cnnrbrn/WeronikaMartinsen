@@ -12,10 +12,7 @@ function Home() {
 
   return (
     <Layout>
-      {/* Pass search handler to HeroSection */}
       <HeroSection onSearch={handleSearch} />
-
-      {/* Display products only once and filter them based on searchInput */}
       <ApiCall searchInput={searchInput} />
     </Layout>
   );

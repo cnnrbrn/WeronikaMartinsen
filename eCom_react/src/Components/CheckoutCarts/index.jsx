@@ -43,48 +43,54 @@ const CheckoutCarts = (props) => {
 
   return (
     <>
-      <div>
-        <div className="flex justify-between gap-4 items-center border bg-white rounded-xl m-3 pr-8">
-          {detail && detail.image ? (
-            <Link
-              to={`/Product/${productId}`}
-              className="flex items-center gap-2"
-            >
-              <img
-                src={detail.image.url}
-                alt={detail.image.alt || "Product image"}
-                className="w-36 h-36 object-cover rounded-xl rounded-r-none"
-              />
-              <h3 className="mr-8">
-                {detail ? detail.title : "Loading title..."}
-              </h3>
-            </Link>
-          ) : (
-            <p>Loading image...</p>
-          )}
+      <div className="grid grid-cols-1 sm:grid-cols-5 justify-center gap-2 items-center border bg-white rounded-xl mt-2 w-full">
+        <div>
+          <Link
+            to={`/Product/${productId}`}
+            className="flex items-center gap-2"
+          >
+            <img
+              src={detail?.image?.url}
+              alt={detail?.image?.alt || "Product image"}
+              className="w-full h-36 object-cover rounded-xl rounded-r-none"
+            />
+          </Link>
+        </div>
+        <div className="flex justify-center items-center text-center">
+          <h3 className="text-md">
+            {detail ? detail.title : "Loading title..."}
+          </h3>
+        </div>
 
+        <div className="flex justify-center items-center text-center">
           <p>
             {detail
-              ? detail.discountedPrice.toFixed(2) * quantity
+              ? (detail.discountedPrice * quantity).toFixed(2)
               : "Loading price..."}
           </p>
+        </div>
 
-          <div className="ml-8 mr-8 w-20 flex justify-between gap-2">
-            <button
-              className="rounded-full w-6 h-6 text-cyan-600"
-              onClick={handleMinusQuantity}
-            >
-              -
-            </button>
-            <span>{quantity}</span>
-            <button
-              className="rounded-full w-6 h-6 text-cyan-600"
-              onClick={handlePlusQuantity}
-            >
-              +
-            </button>
-          </div>
-          <TrashIcon onClick={removeItem} className="h-6 w-6 text-gray-500" />
+        <div className="ml-8 mr-8 flex justify-between gap-2">
+          <button
+            className="rounded-full w-6 h-6 text-cyan-600"
+            onClick={handleMinusQuantity}
+          >
+            -
+          </button>
+          <span>{quantity}</span>
+          <button
+            className="rounded-full w-6 h-6 text-cyan-600"
+            onClick={handlePlusQuantity}
+          >
+            +
+          </button>
+        </div>
+
+        <div className="flex justify-center items-center text-center">
+          <TrashIcon
+            onClick={removeItem}
+            className="h-6 w-6 text-gray-500 cursor-pointer hover:shadow-md rounded-lg"
+          />
         </div>
       </div>
     </>
