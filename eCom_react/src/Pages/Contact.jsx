@@ -1,14 +1,10 @@
-import "../styles/index.css";
 import Layout from "../Layout/Layout";
-import BackToHomeLink from "../Components/BackToHomeLink";
+import ContactForm from "../Components/ContactForm";
 
 function Contact() {
   return (
     <Layout>
-      <div>
-        <BackToHomeLink />
-        <h1>Contact Page</h1>
-      </div>
+      <ContactForm />
     </Layout>
   );
 }

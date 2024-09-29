@@ -4,6 +4,7 @@ import Product from "./Pages/Product";
 import Contact from "./Pages/Contact";
 import Checkout from "./Pages/Checkout";
 import NoPage from "./Pages/NoPage";
+import CheckoutSuccess from "./Pages/CheckoutSuccess";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/Product/:id" element={<Product />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Checkout" element={<Checkout />} />
+          <Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
